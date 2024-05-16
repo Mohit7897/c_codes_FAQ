@@ -1,0 +1,37 @@
+// remove a char from string
+#include <stdio.h>
+void my_charrmv(char *s,char ch)
+{
+    int pos=0;
+    while(s[pos] != '\0')
+    {
+        if(s[pos] == ch)
+        {
+            int newpos = pos;
+            
+            while(s[newpos] != '\0')
+            {
+                s[newpos] = s[newpos+1];
+                newpos++;
+            }
+        }
+        else
+        {
+            pos++;
+        }
+    }
+}
+int main()
+{
+char str[30],ch;
+printf("Enter the string\n");
+scanf(" %[^\n]s",&str);
+printf("enter the char\n");
+scanf(" %c",&ch);
+
+my_charrmv(str,ch);
+
+printf("After removing '%c' string is %s",ch,str);
+
+return 0;
+}

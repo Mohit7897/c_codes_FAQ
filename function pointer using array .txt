@@ -1,0 +1,21 @@
+//function pointer using array 
+#include <stdio.h>
+int add(int num1,int num2)
+{
+    return num1+num2;
+}
+int sub(int num1,int num2)
+{
+    return num1-num2;
+}
+
+int main() {
+    // Write C code here
+    int (*fptr[])(int,int) = {add,sub};
+    
+    printf("%d ",(*fptr[0])(10,5));
+  printf("\n");
+    printf("%d ",(*fptr[1])(10,5));
+    
+    return 0;
+}

@@ -1,0 +1,14 @@
+//c program to bit manipulate 0x1234 to 0x4231 
+#include <stdio.h>
+
+int main() {
+ 
+    unsigned int data = 0x1234;
+    unsigned int temp = data;
+    
+    data=(data << 12) & 0xF000 | (data >> 12) & 0x000F;
+    
+    printf("%04x",data^(temp & 0x0FF0));
+
+    return 0;
+}

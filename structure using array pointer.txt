@@ -1,0 +1,38 @@
+// structure using array pointer
+#include <stdio.h>
+
+typedef struct student
+{
+    char name[50];
+    int roll;
+    int marks;
+}Std;
+
+int main()
+{
+ Std s[3];
+ Std *sptr;
+ 
+ for(int i=0;i<3;i++)
+ {
+     sptr = &s[i];
+     printf("Enter the name; ");
+     scanf(" %[^\n]s",sptr->name);
+     printf("Enter the student roll no:  ");
+     scanf("%d",&sptr->roll);
+     printf("Enter the student marks");
+     scanf("%d",&sptr->marks);
+ }
+  for(int i=0;i<3;i++)
+ {
+     sptr = &s[i];
+     
+     printf("\nName:%d %s \t",i+1,sptr->name);
+ 
+     printf("\nRoll no: %d \t",sptr->roll);
+    
+     printf("\nmarks %d",sptr->marks);
+    
+ }
+ return 0;   
+}

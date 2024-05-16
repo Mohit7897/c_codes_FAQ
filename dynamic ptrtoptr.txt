@@ -1,0 +1,110 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main() {
+    char **ptr; // declare a pointer to a pointer to a char (string)
+    int num_rows, max_length;
+
+    printf("Enter the number of names: ");
+    scanf("%d", &num_rows);
+
+    printf("Enter the maximum length of each name: ");
+    scanf("%d", &max_length);
+
+    // Allocate memory for rows of pointers to char arrays
+    ptr = (char **)malloc(num_rows * sizeof(char *));
+    if (ptr == NULL) {
+        printf("Memory allocation failed.\n");
+        return 1;
+    }
+
+    // For each row, allocate memory for a string
+    for (int i = 0; i < num_rows; i++) {
+        ptr[i] = (char *)malloc((max_length + 1) * sizeof(char)); // Including space for null terminator
+        if (ptr[i] == NULL) {
+            printf("Memory allocation failed.\n");
+            return 1;
+        }
+    }
+
+    // Input names from the user
+    printf("Enter the names:\n");
+    for (int i = 0; i < num_rows; i++) {
+        printf("Name %d: ", i + 1);
+        scanf("%s", ptr[i]);
+    }
+
+    // Print the names
+    printf("\nThe names entered are:\n");
+    for (int i = 0; i < num_rows; i++) {
+        printf("%s\n", ptr[i]);
+    }
+
+    // Free the allocated memory
+    for (int i = 0; i < num_rows; i++) {
+        free(ptr[i]);
+    }
+    free(ptr);
+
+    return 0;
+}
+//
+///
+
+///
+
+//
+
+///
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main() {
+    char **ptr; // declare a pointer to a pointer to a char (string)
+    int num_rows;
+    const int max_length = 20;
+
+    printf("Enter the number of names: ");
+    scanf("%d", &num_rows);
+
+    // Allocate memory for rows of pointers to char arrays
+    ptr = (char **)malloc(num_rows * sizeof(char *));
+    if (ptr == NULL) {
+        printf("Memory allocation failed.\n");
+        return 1;
+    }
+
+    // For each row, allocate memory for a string
+    for (int i = 0; i < num_rows; i++) {
+        ptr[i] = (char *)malloc((max_length + 1) * sizeof(char)); // Including space for null terminator
+        if (ptr[i] == NULL) {
+            printf("Memory allocation failed.\n");
+            return 1;
+        }
+    }
+
+    // Input names from the user
+    printf("Enter the names (up to 20 characters each):\n");
+    for (int i = 0; i < num_rows; i++) {
+        printf("Name %d: ", i + 1);
+        scanf("%20s", ptr[i]);
+    }
+
+    // Print the names
+    printf("\nThe names entered are:\n");
+    for (int i = 0; i < num_rows; i++) {
+        printf("%s\n", ptr[i]);
+    }
+
+    // Free the allocated memory
+    for (int i = 0; i < num_rows; i++) {
+        free(ptr[i]);
+    }
+    free(ptr);
+
+    return 0;
+}
+
+

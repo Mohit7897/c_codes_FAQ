@@ -1,0 +1,82 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+int main()
+{
+    int list_num=0,len_of_str=20;
+    char *temp = (char*)malloc((len_of_str+1)*sizeof(char));
+    if(temp == NULL)
+    {
+        printf("Memory allocation failed");
+        return 1;
+    }
+    printf("Enter the number of list\n");
+    scanf("%d",&list_num);
+    
+    char **name =(char **)malloc(list_num*sizeof(char *));
+    
+    if(name == NULL)
+    {
+        printf("name list Memory allocation failed\n");
+        return 1;
+    }
+    for(int i=0;i<list_num;i++)
+    {
+        name[i]=(char *)malloc((len_of_str+1)*sizeof(char));
+        if(name[i] == NULL)
+        {
+            printf("ith name Memory allocation failed\n");
+            return 1;
+        }
+    }
+    
+    printf("Enter the name details\n");
+    
+    for(int i = 0;i<list_num;i++)
+    {
+        printf("Name %d\t", i+1);
+        scanf("%s",name[i]);
+    }
+    
+    printf("Name details before sort are\n");
+    
+    for(int i = 0;i<list_num;i++)
+    {
+        printf("%s\n",name[i]);
+    }
+    
+    
+    for(int i =0;i<(list_num-1);i++)
+    {
+        for(int j=i+1;j<list_num;j++)
+        {
+            if(strcmp(name[i],name[j])>0)
+            {
+                strcpy(temp,name[i]);
+                strcpy(name[i],name[j]);
+                strcpy(name[j],temp);
+            }
+            
+        }
+    }
+      printf("\n----------------------------------------\n");
+        printf("Input NamestSorted names\n");
+        printf("------------------------------------------\n");
+ 
+        for (int i = 0; i < list_num; i++) 
+        {
+            printf("%s\n",name[i]);
+        }
+ 
+        printf("------------------------------------------\n");
+        
+        for(int i=0;i<list_num;i++)
+    {
+        free(name[i]);
+    }
+    
+    free(name);
+    
+    return 0;
+}

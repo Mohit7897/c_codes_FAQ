@@ -1,0 +1,96 @@
+// matrix multiplication using dynamic memory allocation
+#include <stdio.h>
+#include <stdlib.h>
+
+int **mmry_alct(int row,int col)
+{
+    int **arr = (int **)malloc(row*sizeof(int*));
+    for(int i=0;i<row;i++)
+    {
+        arr[i]=(int *)malloc(col*sizeof(int));
+    }
+    
+    return arr;
+}
+int **matrix_multiplication(int **A,int ra,int ca,int ** B,int rb,int cb)
+{
+    int **c = mmry_alct(ra,cb);
+   
+    for(int i=0;i<ra;i++)
+    {
+        for(int j=0;j<cb;j++)
+        {
+            for(int k=0;k<ra;k++)
+            {
+                c[i][j]+=A[i][k]*B[k][j] ;          
+            }
+        }
+    }
+    
+    return c;
+}
+int main()
+{
+ 
+ int ra,ca,rb,cb;
+ printf("ENter the row and col of matrix A\n ");
+ scanf("%d %d",&ra,&ca);
+ printf("ENter the row and col of matrix B\n ");
+ scanf("%d %d",&rb,&cb);
+
+if(ra != cb)
+{
+    printf(" invalid\n");
+}
+ int **A = mmry_alct(ra,ca);
+ int **B = mmry_alct(rb,cb);
+ 
+ printf("Enter the matrix A element\n");
+ for(int i=0;i<ra;i++)
+ {
+     for(int j=0;j<ca;j++)
+     {
+         scanf("%d",&A[i][j]);
+     }
+ }
+  printf("Enter the matrix B element\n");
+ for(int i=0;i<rb;i++)
+ {
+     for(int j=0;j<cb;j++)
+     {
+         scanf("%d",&B[i][j]);
+     }
+ }
+ printf("Matrix A\n");
+   for(int i=0;i<ra;i++)
+ {
+     for(int j=0;j<ca;j++)
+     {
+         printf("%d ",A[i][j]);
+     }
+     printf("\n");
+ }
+ printf("Matrix B\n");
+   for(int i=0;i<rb;i++)
+ {
+     for(int j=0;j<cb;j++)
+     {
+         printf("%d ",B[i][j]);
+     }
+     printf("\n");
+ }
+ int **c = matrix_multiplication(A,ra,ca,B,rb,cb);
+ 
+  printf("Matrix C\n");
+  for(int i=0;i<ra;i++)
+ {
+     for(int j=0;j<cb;j++)
+     {
+         printf("%d ",c[i][j]);
+     }
+     printf("\n");
+ }
+ 
+ 
+ return 0;   
+}

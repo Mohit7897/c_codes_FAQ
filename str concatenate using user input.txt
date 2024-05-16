@@ -1,0 +1,40 @@
+//str concatenate using user input
+#include<stdio.h>
+int my_strlen(char *str)
+{
+    int len=0;
+    while(*str != '\0')
+    {
+        len++;
+        str++;
+    }
+    return len;
+}
+void my_strcnt(char *des,char *src)
+{
+    int i=0;
+    int des_len = my_strlen(des);
+    int src_len = my_strlen(src);
+    
+    for(i=0;i<src_len;i++)
+    {
+        des[des_len + i] = src[i];
+    }
+    
+    des[des_len+i] = '\0';
+}
+int main()
+{
+    char str1[50];
+    char str2[30];
+    
+    printf("Enter the string 1\n");
+    scanf(" %[^\n]s",&str1);
+    printf("Enter the string 2\n");
+    scanf(" %[^\n]s",&str2);
+    
+    my_strcnt(str1,str2);
+    
+    printf("the string is %s",str1);
+    return 0;
+}

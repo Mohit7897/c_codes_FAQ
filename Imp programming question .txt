@@ -1,0 +1,9 @@
+Imp programming question 
+
+
+Fibonacci series using recursion also
+Armstrong 
+factorial
+pattern basic
+string cmp, copy string ,same char remove from string 
+ 

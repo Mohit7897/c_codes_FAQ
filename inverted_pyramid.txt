@@ -1,0 +1,136 @@
+#include<stdio.h>
+
+void inverted_left_pyramid(int n)
+{
+    printf("Inverted left pyramid\n");
+    for(int i=1;i<=n;i++)
+    {
+        for(int j=n;j>=i;j--)
+        {
+            printf("* ");
+        }
+        printf("\n");
+    }
+}
+void inverted_right_pyramid(int n)
+{
+    printf("inverted_right_pyramid\n");
+    for(int i=1;i<=n;i++)
+    {
+        for(int j=1;j<=i;j++)
+        {
+            printf("  ");
+        }
+        for(int j=n;j>=i;j--)
+        {
+            printf("* ");
+        }
+        printf("\n");
+    }
+}
+void rhombus(int n)
+{
+    printf("Rhombus\n");
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<n-i-1;j++)
+        {
+            printf(" ");
+        }
+        
+        for(int j=0;j<n;j++)
+        {
+            printf("* ");
+        }
+        printf("\n");
+    }
+    printf("Rhombus\n\n");
+      for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<=i-1;j++)
+        {
+            printf(" ");
+        }
+        
+        for(int j=0;j<n;j++)
+        {
+            printf("* ");
+        }
+        printf("\n");
+    }
+    
+}
+void inverted_pyramid(int n)
+{
+    printf("Inverted pyramid\n");
+    for(int i=1;i<=n;i++)
+    {
+        for(int j=1;j<=i;j++)
+        {
+            printf("  ");
+        }
+        for(int j=n;j>i;j--)
+        {
+            printf("* ");
+        }
+        for(int j=n;j>=i;j--)
+        {
+            printf("* ");
+        }
+        printf("\n");
+    }
+    
+}
+void diamond(int n)
+{
+    printf("Diamond\n");
+    for(int i=1;i<n;i++)
+    {
+        for(int j=i;j<=n;j++)
+        {
+            printf("  ");
+        }
+        for(int j=1;j<i;j++)
+        {
+            printf("* ");
+        }
+        for(int j=1;j<=i;j++)
+        {
+            printf("* ");
+        }
+        printf("\n");
+    }
+    for(int i=1;i<=n;i++)
+    {
+        for(int j=1;j<=i;j++)
+        {
+            printf("  ");
+        }
+        for(int j=n;j>i;j--)
+        {
+            printf("* ");
+        }
+        for(int j=n;j>=i;j--)
+        {
+            printf("* ");
+        }
+        printf("\n");
+    }
+}
+int main()
+{
+    int rows=0;
+    printf("Enter the rows: ");
+    scanf("%d",&rows);
+      
+    inverted_left_pyramid(rows); 
+    printf("\n");
+     inverted_right_pyramid(rows); 
+     printf("\n");
+     rhombus(rows);
+     printf("\n");
+     inverted_pyramid(rows);
+     printf("\n");
+     diamond(rows);
+    return 0;
+}
